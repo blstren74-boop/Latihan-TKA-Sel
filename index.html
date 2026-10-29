@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan Soal HOTS TKA Biologi SMA - Metabolisme dan Enzim</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #3b82f6;
+            --secondary: #059669;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1f2937;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+        }
+
+        header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 14px;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background-color: var(--primary-light);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--primary);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background-color: #047857;
+        }
+
+        .question-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .question-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .question-number {
+            background-color: var(--primary);
+            color: white;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-right: 12px;
+        }
+
+        .topic-tag {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .question-text {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+
+        .options-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0 0 16px 0;
+        }
+
+        .option-item {
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            margin-bottom: 8px;
+            background-color: #fafafa;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .option-label {
+            font-weight: bold;
+            margin-right: 10px;
+            color: var(--primary);
+        }
+
+        .explanation-toggle {
+            background: none;
+            border: none;
+            color: var(--primary-light);
+            font-weight: 600;
+            cursor: pointer;
+            padding: 0;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .explanation-toggle:hover {
+            text-decoration: underline;
+        }
+
+        .explanation-box {
+            display: none;
+            margin-top: 14px;
+            padding: 16px;
+            background-color: #f0fdf4;
+            border-left: 4px solid var(--secondary);
+            border-radius: 0 6px 6px 0;
+            font-size: 14px;
+        }
+
+        .explanation-box.active {
+            display: block;
+        }
+
+        .correct-answer {
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 6px;
+        }
+
+        @media print {
+            .action-buttons, .explanation-toggle {
+                display: none !important;
+            }
+            .explanation-box {
+                display: block !important;
+                background-color: #f9f9f9;
+                border-left-color: #666;
+            }
+            body {
+                background-color: white;
+                padding: 0;
+            }
+            .question-card {
+                break-inside: avoid;
+                border: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Paket Soal HOTS TKA Biologi SMA</h1>
+        <p>Materi: Metabolisme Sel (Katabolisme, Anabolisme, Sifat dan Cara Kerja Enzim)</p>
+    </header>
+
+    <div class="action-buttons">
+        <button class="btn btn-secondary" onclick="toggleAllExplanations()">Tampilkan/Sembunyikan Pembahasan</button>
+        <button class="btn" onclick="window.print()">Cetak / Simpan ke PDF</button>
+    </div>
+
+    <!-- Soal 1 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 1</span>
+            <span class="topic-tag">Sifat & Cara Kerja Enzim</span>
+        </div>
+        <div class="question-text">
+            Seorang peneliti menguji aktivitas enzim katalase pada berbagai kondisi suhu dan pH menggunakan ekstrak hati. Hasil pengamatan menunjukkan bahwa enzim mengalami penurunan aktivitas yang drastis pada suhu di atas 60 derajat Celcius dan tidak dapat kembali aktif meskipun suhu diturunkan ke suhu optimal. Analisis apakah yang paling tepat untuk menjelaskan fenomena tersebut?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Terjadi kompetisi aktif antara substrat dengan inhibitor non-kompetitif pada sisi alosterik enzim.</li>
+            <li class="option-item"><span class="option-label">B.</span> Suhu tinggi memutuskan ikatan hidrogen dan ikatan ionik yang menjaga struktur tiga dimensi protein enzim sehingga terjadi denaturasi permanen.</li>
+            <li class="option-item"><span class="option-label">C.</span> Energi kinetik molekul substrat terlalu rendah sehingga gagal mencapai energi aktivasi minimum.</li>
+            <li class="option-item"><span class="option-label">D.</span> Enzim mengalami perubahan bentuk sisi aktif sementara yang bersifat reversibel sesuai teori kunci dan gembok.</li>
+            <li class="option-item"><span class="option-label">E.</span> Terjadi kejenuhan produk akhir yang bertindak sebagai penghambat umpan balik negatif.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(1)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-1">
+            <div class="correct-answer">Kunci Jawaban: B</div>
+            Suhu tinggi memberikan energi termal berlebih yang merusak ikatan lemah (seperti ikatan hidrogen) penunjang struktur tersier protein enzim, menyebabkan denaturasi permanen pada konformasi sisi aktif enzim sehingga hilang fungsinya secara total.
+        </div>
+    </div>
+
+    <!-- Soal 2 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 2</span>
+            <span class="topic-tag">Sifat & Cara Kerja Enzim</span>
+        </div>
+        <div class="question-text">
+            Dalam suatu eksperimen biokimia, penambahan zat kimia tertentu ke dalam larutan enzim memperlihatkan penurunan kecepatan reaksi total yang dapat diatasi kembali jika konsentrasi substrat ditingkatkan secara signifikan. Berdasarkan sifat kinetika enzim, zat penambah tersebut bekerja sebagai...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Inhibitor kompetitif yang menempati sisi aktif enzim secara bersaing dengan substrat.</li>
+            <li class="option-item"><span class="option-label">B.</span> Inhibitor non-kompetitif yang mengubah struktur sisi alosterik secara permanen.</li>
+            <li class="option-item"><span class="option-label">C.</span> Kofaktor organik yang bertindak sebagai koenzim pengaktif reaksi.</li>
+            <li class="option-item"><span class="option-label">D.</span> Activator yang menurunkan energi bebas total produk akhir.</li>
+            <li class="option-item"><span class="option-label">E.</span> Racun metabolik yang memutuskan ikatan peptida rantai asam amino enzim.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(2)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-2">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            Inhibitor kompetitif bersaing secara langsung dengan substrat untuk menempati sisi aktif enzim. Hambatan ini bersifat reversibel dan dapat diatasi dengan memperbesar konsentrasi substrat sehingga peluang substrat menempati sisi aktif kembali tinggi.
+        </div>
+    </div>
+
+    <!-- Soal 3 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 3</span>
+            <span class="topic-tag">Katabolisme</span>
+        </div>
+        <div class="question-text">
+            Pada tahapan respirasi sel aerob, proses glikolisis menghasilkan dua molekul asam piruvat dari satu molekul glukosa. Sebelum memasuki siklus Krebs di matriks mitokondria, asam piruvat harus mengalami dekarboksilasi oksidatif. Manakah produk penting yang dihasilkan dari tahapan penghubung ini?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Asetil Koenzim A, karbon dioksida, dan NADH.</li>
+            <li class="option-item"><span class="option-label">B.</span> Asam laktat, ATP, dan air.</li>
+            <li class="option-item"><span class="option-label">C.</span> Alkohol, FADH2, dan oksigen bebas.</li>
+            <li class="option-item"><span class="option-label">D.</span> Glukosa 6-fosfat dan asam sitrat.</li>
+            <li class="option-item"><span class="option-label">E.</span> Kompleks sitokrom dan air oksidan.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(3)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-3">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            Dekarboksilasi oksidatif mengubah asam piruvat (3 atom C) menjadi Asetil KoA (2 atom C), melepaskan satu molekul karbon dioksida (CO2), serta mereduksi NAD+ menjadi NADH.
+        </div>
+    </div>
+
+    <!-- Soal 4 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 4</span>
+            <span class="topic-tag">Katabolisme</span>
+        </div>
+        <div class="question-text">
+            Transpor elektron dan fosforilasi oksidatif merupakan tahapan respirasi sel yang menghasilkan ATP terbanyak. Peranan utama oksigen dalam proses rantai transpor elektron ini adalah sebagai...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Donor elektron primer penggerak pompa proton membran.</li>
+            <li class="option-item"><span class="option-label">B.</span> Akseptor elektron terakhir yang menerima elektron dan ion hidrogen untuk membentuk air.</li>
+            <li class="option-item"><span class="option-label">C.</span> Katalis utama pengubah ADP menjadi ATP secara langsung tanpa enzim ATP sintase.</li>
+            <li class="option-item"><span class="option-label">D.</span> Pembawa gugus asetil ke dalam matriks mitokondria.</li>
+            <li class="option-item"><span class="option-label">E.</span> Penghambat kerja enzim suksinat dehidrogenase.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(4)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-4">
+            <div class="correct-answer">Kunci Jawaban: B</div>
+            Dalam rantai transpor elektron, oksigen bertindak sebagai akseptor elektron terakhir yang sangat elektronegatif, menangkap elektron berenergi rendah serta ion hidrogen (H+) untuk membentuk produk samping berupa air (H2O).
+        </div>
+    </div>
+
+    <!-- Soal 5 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 5</span>
+            <span class="topic-tag">Katabolisme</span>
+        </div>
+        <div class="question-text">
+            Ketika otot manusia berkontraksi secara intensif dalam kondisi kekurangan pasokan oksigen (misalnya saat sprint jarak pendek), sel otot beralih melakukan fermentasi asam laktat. Tujuan utama dari proses fermentasi asam laktat bagi kelangsungan metabolisme sel adalah...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Menghasilkan jumlah ATP yang jauh lebih besar daripada respirasi aerob.</li>
+            <li class="option-item"><span class="option-label">B.</span> Meregenerasi ketersediaan koenzim NAD+ agar proses glikolisis penghasil ATP tingkat substrat tetap dapat berlangsung.</li>
+            <li class="option-item"><span class="option-label">C.</span> Mengubah timbunan asam piruvat menjadi alkohol yang mudah diekskresikan.</li>
+            <li class="option-item"><span class="option-label">D.</span> Mencegah terjadinya denaturasi protein mitokondria akibat suhu dingin.</li>
+            <li class="option-item"><span class="option-label">E.</span> Membentuk cadangan energi jangka panjang berupa glikogen otot.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(5)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-5">
+            <div class="correct-answer">Kunci Jawaban: B</div>
+            Tanpa adanya oksigen, NADH tidak dapat mendonorkan elektronnya ke rantai transpor elektron. Fermentasi asam laktat meregenerasi NAD+ dari NADH dengan mereduksi piruvat menjadi laktat, sehingga glikolisis penghasil 2 ATP tetap dapat berjalan.
+        </div>
+    </div>
+
+    <!-- Soal 6 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 6</span>
+            <span class="topic-tag">Anabolisme</span>
+        </div>
+        <div class="question-text">
+            Pada reaksi terang fotosintesis tumbuhan hijau, terjadi aliran elektron non-siklik yang melibatkan Fotosistem II dan Fotosistem I. Manakah hasil akhir utama dari rangkaian reaksi terang tersebut yang langsung digunakan dalam siklus Calvin?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Glukosa dan oksigen bebas.</li>
+            <li class="option-item"><span class="option-label">B.</span> ATP dan NADPH.</li>
+            <li class="option-item"><span class="option-label">C.</span> Asam piruvat dan FADH2.</li>
+            <li class="option-item"><span class="option-label">D.</span> Amilum dan air.</li>
+            <li class="option-item"><span class="option-label">E.</span> Ribulosa bisfosfat (RuBP).</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(6)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-6">
+            <div class="correct-answer">Kunci Jawaban: B</div>
+            Reaksi terang fotosintesis menghasilkan energi kimia berupa ATP dan tenaga pereduksi NADPH, serta oksigen sebagai produk samping. ATP dan NADPH kemudian digunakan sebagai sumber energi dan elektron pada reaksi gelap (Siklus Calvin).
+        </div>
+    </div>
+
+    <!-- Soal 7 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 7</span>
+            <span class="topic-tag">Anabolisme</span>
+        </div>
+        <div class="question-text">
+            Enzim Rubisco (Ribulosa 1,5-bisfosfat karboksilase/oksigenase) berperan penting dalam fiksasi karbon pada tumbuhan C3. Namun, enzim ini juga dapat memicu proses fotorespirasi yang merugikan efisiensi fotosintesis apabila...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Konsentrasi gas oksigen di dalam daun sangat tinggi sementara karbon dioksida rendah akibat stomata menutup saat cuaca panas.</li>
+            <li class="option-item"><span class="option-label">B.</span> Suhu lingkungan berada di bawah titik beku air.</li>
+            <li class="option-item"><span class="option-label">C.</span> Intensitas cahaya matahari redup di tempat teduh.</li>
+            <li class="option-item"><span class="option-label">D.</span> Konsentrasi glukosa hasil fotosintesis menumpuk di dalam sitoplasma sel.</li>
+            <li class="option-item"><span class="option-label">E.</span> Ketersediaan air tanah berlimpah dan kelembapan udara sangat tinggi.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(7)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-7">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            Ketika cuaca panas dan kering, tumbuhan menutup stomata untuk mencegah kehilangan air. Akibatnya, CO2 tidak bisa masuk dan O2 hasil fotosintesis menumpuk di dalam daun. Rubisco akan mengikat O2 alih-alih CO2, memicu fotorespirasi yang memboroskan energi sel.
+        </div>
+    </div>
+
+    <!-- Soal 8 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 8</span>
+            <span class="topic-tag">Anabolisme</span>
+        </div>
+        <div class="question-text">
+            Tumbuhan golongan C4 dan CAM (seperti nanas dan kaktus) memiliki adaptasi khusus dalam mekanisme fiksasi karbon untuk mengatasi lingkungan kering dan panas. Karakteristik pembeda utama tumbuhan C4 dalam fiksasi karbon awal adalah...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Mengikat CO2 menggunakan enzim PEP karboksilase membentuk senyawa berkarbon 4 di sel mesofil sebelum ditransfer ke sel seludang pembuluh.</li>
+            <li class="option-item"><span class="option-label">B.</span> Melakukan seluruh fiksasi karbon pada malam hari secara eksklusif.</li>
+            <li class="option-item"><span class="option-label">C.</span> Tidak memiliki klorofil pada jaringan daunnya.</li>
+            <li class="option-item"><span class="option-label">D.</span> Mengandalkan respirasi anaerob sepenuhnya untuk membentuk gula.</li>
+            <li class="option-item"><span class="option-label">E.</span> Menyimpan cadangan makanan dalam bentuk protein murni.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(8)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-8">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            Tumbuhan C4 memisahkan fiksasi awal CO2 secara spasial. CO2 diikat oleh enzim PEP karboksilase (yang tidak memiliki afinitas terhadap O2) di sel mesofil membentuk senyawa berkarbon 4 (malat/aspartat), lalu dikirim ke sel seludang pembuluh untuk Siklus Calvin.
+        </div>
+    </div>
+
+    <!-- Soal 9 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 9</span>
+            <span class="topic-tag">Sifat & Cara Kerja Enzim</span>
+        </div>
+        <div class="question-text">
+            Perhatikan pernyataan mengenai sifat kerja enzim berikut: (1) Enzim ikut bereaksi dan habis terpakai bersama substrat; (2) Enzim bersifat spesifik terhadap jenis substrat tertentu; (3) Enzim bekerja bolak-balik (reversibel); (4) Enzim menaikkan energi aktivasi reaksi. Pernyataan yang benar mengenai sifat enzim adalah...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> (1) dan (2)</li>
+            <li class="option-item"><span class="option-label">B.</span> (2) dan (3)</li>
+            <li class="option-item"><span class="option-label">C.</span> (1) dan (4)</li>
+            <li class="option-item"><span class="option-label">D.</span> (3) dan (4)</li>
+            <li class="option-item"><span class="option-label">E.</span> (2) dan (4)</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(9)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-9">
+            <div class="correct-answer">Kunci Jawaban: B</div>
+            Enzim berfungsi sebagai biokatalisator yang tidak ikut habis terpakai dalam reaksi, bersifat spesifik, bekerja secara bolak-balik (reversibel), serta menurunkan (bukan menaikkan) energi aktivasi yang diperlukan agar reaksi kimia dapat berlangsung cepat.
+        </div>
+    </div>
+
+    <!-- Soal 10 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 10</span>
+            <span class="topic-tag">Katabolisme</span>
+        </div>
+        <div class="question-text">
+            Siklus Krebs (siklus asam sitrat) yang berlangsung di matriks mitokondria menghasilkan sejumlah molekul energi tinggi dari pemecahan gugus Asetil KoA. Dari satu molekul glukosa (yang menghasilkan dua molekul Asetil KoA), total koenzim tereduksi (NADH dan FADH2) yang dihasilkan secara langsung pada siklus Krebs adalah...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> 2 NADH dan 2 FADH2</li>
+            <li class="option-item"><span class="option-label">B.</span> 4 NADH dan 1 FADH2</li>
+            <li class="option-item"><span class="option-label">C.</span> 6 NADH dan 2 FADH2</li>
+            <li class="option-item"><span class="option-label">D.</span> 10 NADH dan 2 FADH2</li>
+            <li class="option-item"><span class="option-label">E.</span> 8 NADH dan 4 FADH2</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(10)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-10">
+            <div class="correct-answer">Kunci Jawaban: C</div>
+            Satu putaran siklus Krebs menghasilkan 3 NADH, 1 FADH2, dan 1 ATP/GTP. Karena satu molekul glukosa dipecah menjadi dua molekul Asetil KoA (dua siklus), maka total koenzim yang dihasilkan adalah 6 NADH dan 2 FADH2.
+        </div>
+    </div>
+
+    <!-- Soal 11 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 11</span>
+            <span class="topic-tag">Anabolisme</span>
+        </div>
+        <div class="question-text">
+            Pada jalur fotosintesis tumbuhan CAM (Crassulacean Acid Metabolism), pemisahan fiksasi karbon dioksida tidak dilakukan secara spasial melainkan secara temporal (waktu). Adaptasi fisiologis utama dari tumbuhan CAM adalah...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Membuka stomata pada malam hari untuk menyerap CO2 dan menyimpannya dalam bentuk asam malat, lalu menutup stomata pada siang hari untuk fotosintesis.</li>
+            <li class="option-item"><span class="option-label">B.</span> Melakukan reaksi terang pada malam hari dan reaksi gelap pada siang hari.</li>
+            <li class="option-item"><span class="option-label">C.</span> Hanya dapat hidup di dalam air laut yang berkadar garam tinggi.</li>
+            <li class="option-item"><span class="option-label">D.</span> Tidak memerlukan pigmen klorofil sama sekali dalam proses penyerapan cahaya.</li>
+            <li class="option-item"><span class="option-label">E.</span> Menghasilkan alkohol sebagai produk samping respirasi malam hari.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(11)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-11">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            Tumbuhan CAM menghemat air di daerah kering dengan membuka stomata pada malam hari ketika suhu lebih rendah untuk mengikat CO2 menjadi asam malat. Pada siang hari, stomata ditutup untuk mencegah transpirasi, dan asam malat dipecah melepaskan CO2 untuk Siklus Calvin.
+        </div>
+    </div>
+
+    <!-- Soal 12 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 12</span>
+            <span class="topic-tag">Katabolisme</span>
+        </div>
+        <div class="question-text">
+            Selain karbohidrat, sel tubuh manusia dapat menggunakan asam lemak dan protein sebagai sumber energi melalui jalur katabolisme. Sebelum memasuki siklus Krebs, asam lemak dipecah melalui proses beta-oksidasi menjadi senyawa...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Asam piruvat</li>
+            <li class="option-item"><span class="option-label">B.</span> Asetil KoA</li>
+            <li class="option-item"><span class="option-label">C.</span> Gliseraldehida 3-fosfat</li>
+            <li class="option-item"><span class="option-label">D.</span> Asam oksaloasetat</li>
+            <li class="option-item"><span class="option-label">E.</span> Asam laktat</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(12)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-12">
+            <div class="correct-answer">Kunci Jawaban: B</div>
+            Melalui proses beta-oksidasi di dalam mitokondria, rantai karbon asam lemak dipotong-potong menjadi unit berkarbon dua yang kemudian berikatan dengan koenzim A membentuk Asetil KoA, sehingga langsung masuk ke siklus Krebs.
+        </div>
+    </div>
+
+    <!-- Soal 13 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 13</span>
+            <span class="topic-tag">Sifat & Cara Kerja Enzim</span>
+        </div>
+        <div class="question-text">
+            Model kerja enzim yang dikemukakan oleh Daniel Koshland menyempurnakan teori kunci dan gembok (lock and key). Model tersebut dikenal sebagai model ketepatan induksi (induced fit). Pernyataan yang paling tepat mendeskripsikan model induced fit adalah...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Sisi aktif enzim bersifat kaku dan bentuknya sangat pas dengan substrat sejak awal tanpa perubahan apa pun.</li>
+            <li class="option-item"><span class="option-label">B.</span> Sisi aktif enzim bersifat fleksibel dan mengalami penyesuaian bentuk konformasi saat molekul substrat mendekat dan berikatan.</li>
+            <li class="option-item"><span class="option-label">C.</span> Enzim dapat bekerja tanpa memerlukan substrat spesifik asalkan ada kofaktor.</li>
+            <li class="option-item"><span class="option-label">D.</span> Enzim akan hancur setelah satu kali katalisis kimia selesai.</li>
+            <li class="option-item"><span class="option-label">E.</span> Substrat yang menyesuaikan bentuknya agar sama persis dengan sisi alosterik enzim.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(13)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-13">
+            <div class="correct-answer">Kunci Jawaban: B</div>
+            Model *induced fit* (ketepatan induksi) menyatakan bahwa sisi aktif enzim bersifat fleksibel. Ketika substrat masuk ke sisi aktif, enzim mengubah bentuk konformasinya sedikit agar interaksi pengikatan dengan substrat menjadi jauh lebih pas dan optimal.
+        </div>
+    </div>
+
+    <!-- Soal 14 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 14</span>
+            <span class="topic-tag">Katabolisme</span>
+        </div>
+        <div class="question-text">
+            Dalam proses respirasi sel aerob, fosforilasi tingkat substrat terjadi pada jalur glikolisis dan siklus Krebs. Pengertian dari fosforilasi tingkat substrat adalah...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Pembentukan ATP melalui transfer gugus fosfat berenergi tinggi dari suatu senyawa intermediat organik secara langsung kepada ADP.</li>
+            <li class="option-item"><span class="option-label">B.</span> Sintesis ATP yang digerakkan oleh gradien proton melintasi membran melalui enzim ATP sintase.</li>
+            <li class="option-item"><span class="option-label">C.</span> Penambahan molekul fosfat secara fotokimia menggunakan energi cahaya matahari.</li>
+            <li class="option-item"><span class="option-label">D.</span> Pemecahan molekul ATP menjadi ADP di dalam sitoplasma sel.</li>
+            <li class="option-item"><span class="option-label">E.</span> Pengikatan gugus fosfat bebas oleh molekul oksigen murni.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(14)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-14">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            Fosforilasi tingkat substrat adalah mekanisme pembentukan ATP di mana enzim mentransfer gugus fosfat secara langsung dari molekul substrat berenergi tinggi ke molekul ADP, seperti yang terjadi pada glikolisis dan siklus Krebs.
+        </div>
+    </div>
+
+    <!-- Soal 15 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 15</span>
+            <span class="topic-tag">Anabolisme</span>
+        </div>
+        <div class="question-text">
+            Siklus Calvin pada fotosintesis dibagi menjadi tiga tahap utama: fiksasi karbon, reduksi, dan regenerasi akseptor. Molekul apakah yang bertindak sebagai akseptor karbon dioksida pada tahap awal fiksasi dalam Siklus Calvin?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Fosfogliserat (PGA)</li>
+            <li class="option-item"><span class="option-label">B.</span> Gliseraldehida 3-fosfat (PGAL)</li>
+            <li class="option-item"><span class="option-label">C.</span> Ribulosa bisfosfat (RuBP)</li>
+            <li class="option-item"><span class="option-label">D.</span> Fosfoenolpiruvat (PEP)</li>
+            <li class="option-item"><span class="option-label">E.</span> Asam malat</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(15)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-15">
+            <div class="correct-answer">Kunci Jawaban: C</div>
+            Molekul yang bertindak sebagai akseptor CO2 dalam tahap fiksasi Siklus Calvin adalah Ribulosa bisfosfat (RuBP), yaitu gula berkarbon lima yang dibantu oleh enzim Rubisco.
+        </div>
+    </div>
+
+    <!-- Soal 16 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 16</span>
+            <span class="topic-tag">Sifat & Cara Kerja Enzim</span>
+        </div>
+        <div class="question-text">
+            Beberapa enzim memerlukan komponen non-protein agar dapat bekerja secara aktif. Komponen non-protein berupa ion logam (seperti $Mg^{2+}$ atau $Zn^{2+}$) yang terikat pada enzim dikenal sebagai...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Koenzim</li>
+            <li class="option-item"><span class="option-label">B.</span> Kofaktor</li>
+            <li class="option-item"><span class="option-label">C.</span> Inhibitor alosterik</li>
+            <li class="option-item"><span class="option-label">D.</span> Substrat sekunder</li>
+            <li class="option-item"><span class="option-label">E.</span> Apoenzim</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(16)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-16">
+            <div class="correct-answer">Kunci Jawaban: B</div>
+            Kofaktor adalah komponen non-protein dari enzim yang dapat berupa ion anorganik (seperti ion logam $Mg$, $Zn$, $Mn$) yang esensial untuk mengaktifkan fungsi katalitik enzim. Bagian proteinnya sendiri disebut apoenzim.
+        </div>
+    </div>
+
+    <!-- Soal 17 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 17</span>
+            <span class="topic-tag">Katabolisme</span>
+        </div>
+        <div class="question-text">
+            Chemiosmosis adalah mekanisme penting dalam fosforilasi oksidatif mitokondria dan fosfotransduksi kloroplas. Sumber energi utama yang menggerakkan enzim ATP sintase untuk membentuk ATP dalam proses chemiosmosis adalah...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Potensial listrik dan gradien konsentrasi ion hidrogen (proton) melintasi membran.</li>
+            <li class="option-item"><span class="option-label">B.</span> Panas yang dihasilkan oleh pembakaran glukosa secara langsung.</li>
+            <li class="option-item"><span class="option-label">C.</span> Aliran elektron bebas di dalam matriks sitoplasma.</li>
+            <li class="option-item"><span class="option-label">D.</span> Tekanan osmotik air di dalam vakuola sel.</li>
+            <li class="option-item"><span class="option-label">E.</span> Penguraian molekul asam lemak rantai pendek.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(17)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-17">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            Chemiosmosis bergantung pada gradien elektrokimia ion hidrogen (proton). Pompa proton menciptakan konsentrasi H+ yang tinggi di ruang antar-membran. Ketika proton mengalir kembali melalui kanal ATP sintase, energi dari gradien tersebut digunakan untuk menyintesis ATP.
+        </div>
+    </div>
+
+    <!-- Soal 18 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 18</span>
+            <span class="topic-tag">Anabolisme</span>
+        </div>
+        <div class="question-text">
+            Kemosintesis dilakukan oleh mikroorganisme autotrof non-fotosintetik seperti bakteri belerang (*Sulfolobus*) atau bakteri nitrifikasi. Perbedaan mendasar antara kemosintesis dan fotosintesis terletak pada...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Kemosintesis menggunakan sumber energi dari oksidasi senyawa kimia anorganik, sedangkan fotosintesis menggunakan energi cahaya matahari.</li>
+            <li class="option-item"><span class="option-label">B.</span> Kemosintesis menghasilkan oksigen bebas dalam jumlah besar, sedangkan fotosintesis menghasilkan karbon dioksida.</li>
+            <li class="option-item"><span class="option-label">C.</span> Fotosintesis hanya terjadi di dalam kegelapan total, sedangkan kemosintesis membutuhkan cahaya matahari langsung.</li>
+            <li class="option-item"><span class="option-label">D.</span> Kemosintesis tidak memerlukan siklus fiksasi karbon sama sekali.</li>
+            <li class="option-item"><span class="option-label">E.</span> Fotosintesis hanya dapat dilakukan oleh hewan tingkat tinggi.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(18)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-18">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            Baik fotosintesis maupun kemosintesis adalah proses anabolisme pembuatan zat organik. Perbedaannya adalah sumber energi penggeraknya: fotosintesis memanfaatkan energi foton cahaya matahari, sementara kemosintesis memanfaatkan energi kimia dari oksidasi senyawa anorganik.
+        </div>
+    </div>
+
+    <!-- Soal 19 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 19</span>
+            <span class="topic-tag">Sifat & Cara Kerja Enzim</span>
+        </div>
+        <div class="question-text">
+            Inhibisi alosterik (umpan balik / feedback inhibition) sering ditemukan pada jalur metabolisme sel bertahap. Karakteristik utama dari inhibitor alosterik adalah...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Berikatan pada sisi alosterik (bukan sisi aktif) dan menyebabkan perubahan konformasi bentuk sisi aktif enzim sehingga substrat tidak dapat berikatan.</li>
+            <li class="option-item"><span class="option-label">B.</span> Menempel secara permanen pada sisi aktif enzim dan merusak ikatan peptida rantai utama.</li>
+            <li class="option-item"><span class="option-label">C.</span> Berfungsi menambah kecepatan reaksi dengan cara menaikkan energi aktivasi.</li>
+            <li class="option-item"><span class="option-label">D.</span> Selalu berupa molekul substrat berlebih yang mengaktifkan kerja enzim.</li>
+            <li class="option-item"><span class="option-label">E.</span> Hanya dapat bekerja pada suhu di atas titik didih air.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(19)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-19">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            Inhibitor alosterik (non-kompetitif) berikatan pada sisi pengatur (sisi alosterik) enzim. Ikatan ini menyebabkan perubahan bentuk konformasi tiga dimensi pada sisi aktif enzim, sehingga substrat gagal mengenali atau berikatan dengan sisi aktif tersebut.
+        </div>
+    </div>
+
+    <!-- Soal 20 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 20</span>
+            <span class="topic-tag">Katabolisme</span>
+        </div>
+        <div class="question-text">
+            Perhatikan jalur respirasi anaerob (fermentasi alkohol) yang dilakukan oleh ragi (*Saccharomyces cerevisiae*). Senyawa intermediat apakah yang bertindak sebagai penerima elektron dari NADH untuk diubah menjadi etanol?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Asam laktat</li>
+            <li class="option-item"><span class="option-label">B.</span> Asetaldehida</li>
+            <li class="option-item"><span class="option-label">C.</span> Glukosa 6-fosfat</li>
+            <li class="option-item"><span class="option-label">D.</span> Asam sitrat</li>
+            <li class="option-item"><span class="option-label">E.</span> Asetil KoA</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(20)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-20">
+            <div class="correct-answer">Kunci Jawaban: B</div>
+            Dalam fermentasi alkohol, asam piruvat terlebih dahulu melepaskan CO2 menjadi asetaldehida. Asetaldehida inilah yang kemudian bertindak sebagai penerima elektron dari NADH, direduksi menjadi etanol (alkohol) dan meregenerasi NAD+.
+        </div>
+    </div>
+
+    <!-- Soal 21 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 21</span>
+            <span class="topic-tag">Anabolisme</span>
+        </div>
+        <div class="question-text">
+            Pigmen fotosintesis utama pada tumbuhan hijau adalah Klorofil a dan Klorofil b. Alasan utama mengapa tumbuhan menyerap spektrum cahaya merah dan biru serta memantulkan cahaya hijau adalah...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Panjang gelombang cahaya hijau memiliki energi terlalu tinggi yang dapat merusak membran tilakoid.</li>
+            <li class="option-item"><span class="option-label">B.</span> Struktur elektron terkonjugasi pada molekul klorofil menyerap foton pada panjang gelombang merah dan biru secara optimal, sedangkan cahaya hijau diteruskan atau dipantulkan.</li>
+            <li class="option-item"><span class="option-label">C.</span> Cahaya hijau tidak mengandung foton energi sama sekali.</li>
+            <li class="option-item"><span class="option-label">D.</span> Klorofil sengaja memantulkan hijau agar daun terlihat indah oleh serangga penyerbuk.</li>
+            <li class="option-item"><span class="option-label">E.</span> Cahaya hijau langsung diubah menjadi panas di dalam kloroplas.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(21)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-21">
+            <div class="correct-answer">Kunci Jawaban: B</div>
+            Struktur kimia pigmen klorofil memiliki cincin porfirin yang sangat efisien menyerap energi foton pada spektrum cahaya tampak bagian biru dan merah. Sebaliknya, panjang gelombang hijau tidak diserap dengan baik dan dipantulkan, membuat daun tampak berwarna hijau.
+        </div>
+    </div>
+
+    <!-- Soal 22 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 22</span>
+            <span class="topic-tag">Katabolisme</span>
+        </div>
+        <div class="question-text">
+            Berapakah estimasi total bersih molekul ATP yang dihasilkan dari katabolisme sempurna satu molekul glukosa melalui jalur respirasi sel aerob (glikolisis, dekarboksilasi oksidatif, siklus Krebs, dan transpor elektron)?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> 2 ATP</li>
+            <li class="option-item"><span class="option-label">B.</span> 4 ATP</li>
+            <li class="option-item"><span class="option-label">C.</span> 30 hingga 32 ATP</li>
+            <li class="option-item"><span class="option-label">D.</span> 38 ATP</li>
+            <li class="option-item"><span class="option-label">E.</span> 100 ATP</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(22)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-22">
+            <div class="correct-answer">Kunci Jawaban: C</div>
+            Berdasarkan perhitungan biokimia modern yang memperhitungkan biaya transport NADH sitosol ke mitokondria, total bersih hasil respirasi aerob dari 1 molekul glukosa berkisar antara 30 hingga 32 ATP (perhitungan klasik sering menyebutkan 38 ATP).
+        </div>
+    </div>
+
+    <!-- Soal 23 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 23</span>
+            <span class="topic-tag">Sifat & Cara Kerja Enzim</span>
+        </div>
+        <div class="question-text">
+            Kurva hubungan antara konsentrasi substrat dan laju reaksi enzim menunjukkan adanya titik jenuh (Vmax). Alasan utama mengapa penambahan substrat lebih lanjut tidak lagi menaikkan laju reaksi setelah mencapai titik Vmax adalah...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Seluruh sisi aktif molekul enzim telah jenuh dan sedang bekerja mengikat substrat.</li>
+            <li class="option-item"><span class="option-label">B.</span> Enzim mengalami denaturasi total akibat kelebihan molekul substrat.</li>
+            <li class="option-item"><span class="option-label">C.</span> Substrat berubah menjadi racun bagi larutan enzim.</li>
+            <li class="option-item"><span class="option-label">D.</span> Suhu larutan menurun drastis di bawah titik optimum.</li>
+            <li class="option-item"><span class="option-label">E.</span> Koenzim terlepas dari ikatan protein apoenzim.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(23)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-23">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            Pada titik Vmax, seluruh sisi aktif enzim yang tersedia di dalam larutan sudah terisi penuh oleh molekul substrat (jenuh). Penambahan substrat tidak akan mempercepat reaksi karena tidak ada lagi sisi aktif enzim bebas yang tersedia.
+        </div>
+    </div>
+
+    <!-- Soal 24 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 24</span>
+            <span class="topic-tag">Anabolisme</span>
+        </div>
+        <div class="question-text">
+            Fotosistem I (PS I) dan Fotosistem II (PS II) bekerja secara sinkron dalam reaksi terang fotosintesis. Pusat reaksi klorofil a pada Fotosistem II dikenal sebagai P680, sedangkan pada Fotosistem I dikenal sebagai P700. Perbedaan angka tersebut menunjukkan...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Panjang gelombang cahaya optimal (dalam nanometer) yang paling kuat diserap oleh pigmen pusat reaksi masing-masing fotosistem.</li>
+            <li class="option-item"><span class="option-label">B.</span> Jumlah molekul klorofil yang terkandung di dalam masing-masing fotosistem.</li>
+            <li class="option-item"><span class="option-label">C.</span> Suhu operasi optimal dalam derajat Celsius bagi klorofil.</li>
+            <li class="option-item"><span class="option-label">D.</span> Jumlah molekul ATP yang dihasilkan setiap kali foton diserap.</li>
+            <li class="option-item"><span class="option-label">E.</span> Tingkat keasaman (pH) matriks kloroplas di sekitar fotosistem.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(24)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-24">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            Penamaan P680 dan P700 merujuk pada panjang gelombang cahaya dalam satuan nanometer (nm) di mana pigmen klorofil pada pusat reaksi masing-masing fotosistem menunjukkan penyerapan puncak yang paling optimal.
+        </div>
+    </div>
+
+    <!-- Soal 25 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 25</span>
+            <span class="topic-tag">Katabolisme</span>
+        </div>
+        <div class="question-text">
+            Toksin sianida merupakan racun mematikan yang menghambat proses respirasi sel aerob. Sianida bekerja secara spesifik dengan cara berikatan pada kompleks sitokrom c oksidase di rantai transpor elektron mitokondria. Akibat langsung dari hambatan toksik ini adalah...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Terhentinya aliran elektron ke oksigen, berhentinya pembentukan gradien proton, dan kegagalan sintesis ATP yang menyebabkan kematian sel.</li>
+            <li class="option-item"><span class="option-label">B.</span> Peningkatan produksi ATP secara berlebihan hingga sel meledak.</li>
+            <li class="option-item"><span class="option-label">C.</span> Percepatan siklus Krebs tanpa batas waktu.</li>
+            <li class="option-item"><span class="option-label">D.</span> Konversi total mitokondria menjadi kloroplas fungsional.</li>
+            <li class="option-item"><span class="option-label">E.</span> Perubahan asam piruvat langsung menjadi glukosa murni.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(25)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-25">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            Sianida adalah racun pernapasan yang menghambat sitokrom c oksidase (Kompleks IV). Akibatnya, elektron tidak dapat ditransfer ke oksigen, transpor elektron terhenti, tidak ada pompa proton, sehingga sintesis ATP terhenti total dan sel kehabisan energi.
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function toggleExplanation(id) {
+        const box = document.getElementById('exp-' + id);
+        if (box.classList.contains('active')) {
+            box.classList.remove('active');
+        } else {
+            box.classList.add('active');
+        }
+    }
+
+    function toggleAllExplanations() {
+        const boxes = document.querySelectorAll('.explanation-box');
+        const anyHidden = Array.from(boxes).some(box => !box.classList.contains('active'));
+        
+        boxes.forEach(box => {
+            if (anyHidden) {
+                box.classList.add('active');
+            } else {
+                box.classList.remove('active');
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
